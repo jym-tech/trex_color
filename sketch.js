@@ -40,17 +40,17 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   
-  sun = createSprite(width-50,100,10,10);
+  sun = createSprite(width-150,100,10,10);
   sun.addAnimation("sun", sunAnimation);
-  //sun.scale = 0.1
+  sun.scale = 0.3;
   
-  trex = createSprite(50,height-70,20,50);
+  trex = createSprite(100,height-70,20,50);
   
   
   trex.addAnimation("running", trex_running);
   trex.addAnimation("collided", trex_collided);
   trex.setCollider('circle',0,0,350)
-  //trex.scale = 0.08
+  trex.scale = 0.2;
   // trex.debug=true
   
   invisibleGround = createSprite(width/2,height-10,width,125);  
@@ -94,9 +94,9 @@ function draw() {
     score = score + Math.round(getFrameRate()/60);
     ground.velocityX = -(6 + 3*score/100);
     
-    if((touches.length > 0 || keyDown("SPACE")) && trex.y  >= height-120) {
+    if((touches.length > 0 || keyDown("SPACE")) && trex.y  >= height-250) {
       jumpSound.play( )
-      trex.velocityY = -10;
+      trex.velocityY = -12;
        touches = [];
     }
     
@@ -166,7 +166,7 @@ function spawnClouds() {
 
 function spawnObstacles() {
   if(frameCount % 60 === 0) {
-    var obstacle = createSprite(600,height-95,20,30);
+    var obstacle = createSprite(600,height-120,20,30);
     obstacle.setCollider('circle',0,0,45)
     // obstacle.debug = true
   
@@ -183,7 +183,7 @@ function spawnObstacles() {
     }
     
     //assign scale and lifetime to the obstacle           
-    //obstacle.scale = 0.3;
+    obstacle.scale = 0.8;
     obstacle.lifetime = 300;
     obstacle.depth = trex.depth;
     trex.depth +=1;
