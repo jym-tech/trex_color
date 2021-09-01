@@ -40,11 +40,11 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   
-  sun = createSprite(width-50,100,10,10);
+  sun = createSprite(width,100,10,10);
   sun.addAnimation("sun", sunAnimation);
   sun.scale = 0.1
   
-  trex = createSprite(50,height-70,20,50);
+  trex = createSprite(50,height,20,50);
   
   
   trex.addAnimation("running", trex_running);
@@ -53,7 +53,7 @@ function setup() {
   trex.scale = 0.08
   // trex.debug=true
   
-  invisibleGround = createSprite(width/2,height-10,width,125);  
+  invisibleGround = createSprite(width/2,height,width,125);  
   invisibleGround.shapeColor = "#f4cbaa";
   
   ground = createSprite(width/2,height,width,2);
